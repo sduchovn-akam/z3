@@ -2421,6 +2421,16 @@ namespace Microsoft.Z3
         }
 
         /// <summary>
+        /// Get the value of a string constant.
+        /// </summary>
+        public string GetStringValue(SeqExpr s)
+        {
+            Contract.Requires(s != null);
+            Contract.Ensures(Contract.Result<string>() != null);
+            return Native.Z3_get_string(nCtx, s.NativeObject);
+        }
+
+        /// <summary>
         /// Concatentate sequences.
         /// </summary>
         public SeqExpr MkConcat(params SeqExpr[] t)
