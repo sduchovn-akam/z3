@@ -3346,6 +3346,13 @@ extern "C" {
     Z3_ast Z3_API Z3_mk_re_option(Z3_context c, Z3_ast re);
 
     /**
+       \brief Create the regular language for a range of symbols start-end.
+
+       def_API('Z3_mk_re_range' ,AST ,(_in(CONTEXT), _in(AST), _in(AST)))
+     */
+    Z3_ast Z3_API Z3_mk_re_range(Z3_context c, Z3_ast start, Z3_ast end);
+
+    /**
        \brief Create the union of the regular languages.
 
        \pre n > 0

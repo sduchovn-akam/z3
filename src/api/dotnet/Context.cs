@@ -2585,6 +2585,17 @@ namespace Microsoft.Z3
         }
 
         /// <summary>
+        /// Create the regular expression for a range of symbols.
+        /// </summary>
+        public ReExpr MkRange(SeqExpr start, SeqExpr end)
+        {
+            Contract.Requires(start != null);
+            Contract.Requires(end != null);
+            Contract.Ensures(Contract.Result<ReExpr>() != null);
+            return new ReExpr(this, Native.Z3_mk_re_range(nCtx, start.NativeObject, end.NativeObject));
+        }
+
+        /// <summary>
         /// Create the concatenation of regular languages.
         /// </summary>
         public ReExpr MkConcat(params ReExpr[] t)
